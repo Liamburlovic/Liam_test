@@ -1,0 +1,38 @@
+class Main {
+  /**
+  determines whether the given value is prime.
+  returns true if value is prime and false otherwise. 
+  */
+  public static boolean isPrime(int value)
+  {
+    int count = 0;
+    for (int i = 1; i<=value; i++)
+      {
+        if (value % i == 0)
+        {
+          count++;
+        }
+      }
+   return count == 2;
+  }
+
+
+  /**
+  finds and returns the nth prime. For example, if n==1, 
+  return 2, the first prime. If n==5, returns 11. 
+  */
+  public static int findNthPrime(int n){
+    int number = 2;
+    for (int i = 0; i<=n; i++)
+      {
+        while (!isPrime(number))
+          number++;
+        number++;
+      }
+      return number-1;
+  }
+  
+  public static void main(String[] args) {
+    System.out.println(findNthPrime(10001));
+  }
+}
